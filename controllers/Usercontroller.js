@@ -6,10 +6,16 @@ const getdata = (req, res) =>
 }
 const postdata=(req,res) =>
 {
-       const name=req.body.username
-    res.send(`I am post api response  ${name} `)
-    console.log("I am post api response")
-    console.log(name)
+    const {name,email}=req.body
+    if (!email || !name) {
+        throw new Error("Enter Fields")
+
+    } else {
+        res.send(`I am post api response  ${name} and ${email}  `)
+        console.log("I am post api response")
+        console.log(email)
+        console.log(name)
+    }
 }
 module.exports = {
     getdata,
